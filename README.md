@@ -1,1 +1,257 @@
 # martin-marucha-portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Martin Mandieka Marucha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f0f4f8;
+      --text: #333;
+      --primary: #0077b6;
+      --accent: #00b4d8;
+      --card: #fff;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f5f5f5;
+      --primary: #90e0ef;
+      --accent: #48cae4;
+      --card: #1e1e1e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: var(--card);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    header {
+      height: 100vh;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease;
+    }
+
+    .typing {
+      border-right: 3px solid #fff;
+      font-size: 1.5em;
+      margin-top: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards;
+    }
+
+    .cta-button, .download-button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #fff;
+      color: var(--primary);
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-right: 10px;
+    }
+
+    .cta-button:hover, .download-button:hover {
+      background: #caf0f8;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2em;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about p, .projects p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      transition: background 0.3s;
+    }
+
+    .skill-card:nth-child(1) { animation-delay: 0.2s; }
+    .skill-card:nth-child(2) { animation-delay: 0.4s; }
+    .skill-card:nth-child(3) { animation-delay: 0.6s; }
+    .skill-card:nth-child(4) { animation-delay: 0.8s; }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    button[type="submit"] {
+      padding: 12px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+  <header>
+    <h1>Martin Mandieka Marucha</h1>
+    <div class="typing">Medical Practitioner | Computer Geek | Innovator</div>
+    <div style="margin-top:30px;">
+      <a href="#contact"><button class="cta-button">Connect with Me</button></a>
+      <a href="resume.pdf" download><button class="download-button">📄 Download Resume</button></a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I'm Martin Mandieka Marucha — a passionate medical practitioner who blends healthcare and technology.
+      I hold IC3 certification and enjoy applying innovative thinking to real-world health challenges.
+      My unique perspective empowers me to bridge clinical knowledge with digital literacy and leadership.
+    </p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skill-card">
+      <h3>Medical Knowledge</h3>
+      <p>Deep clinical experience with a patient-centered approach.</p>
+    </div>
+    <div class="skill-card">
+      <h3>IC3 Digital Skills</h3>
+      <p>Fundamental tech proficiency in digital tools and systems.</p>
+    </div>
+    <div class="skill-card">
+      <h3>Soft Skills</h3>
+      <p>Excellent communicator, empathetic leader, adaptive mindset.</p>
+    </div>
+    <div class="skill-card">
+      <h3>Innovation</h3>
+      <p>Passion for solving problems at the intersection of health & tech.</p>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projects & Initiatives</h2>
+    <p>
+      - Created a mockup for a digital appointment scheduler for clinics.  
+      - Participated in community tech-med outreach.  
+      - Leading peer mentorship sessions on medical tech adoption.
+    </p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required/>
+      <input type="email" placeholder="Your Email" required/>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Martin Mandieka Marucha. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
